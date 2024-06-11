@@ -1,0 +1,13 @@
+﻿@model IEnumerable<TripApplication.Models.PlaceDto>
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List Of Attractions</h2>
+<div>
+    <p>Click on the cities below to know the places you can plan your trip.</p>
+</div>
+@foreach (var place in Model)
+{ 
+    <h3><a href="/Place/Show/@place.PlaceId">@place.PlaceName</a></h3>
+}
