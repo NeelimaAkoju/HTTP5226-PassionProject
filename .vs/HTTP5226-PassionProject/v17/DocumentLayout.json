@@ -1,12 +1,37 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\neeli\\source\\repos\\HTTP5226-PassionProject\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\neeli\\source\\repos\\HTTP5226-PassionProject\\TripApplication\\Views\\Trip\\DeleteConfirm.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:TripApplication\\Views\\Trip\\DeleteConfirm.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DeleteConfirm.cshtml",
+              "DocumentMoniker": "C:\\Users\\neeli\\source\\repos\\HTTP5226-PassionProject\\TripApplication\\Views\\Trip\\DeleteConfirm.cshtml",
+              "RelativeDocumentMoniker": "TripApplication\\Views\\Trip\\DeleteConfirm.cshtml",
+              "ToolTip": "C:\\Users\\neeli\\source\\repos\\HTTP5226-PassionProject\\TripApplication\\Views\\Trip\\DeleteConfirm.cshtml",
+              "RelativeToolTip": "TripApplication\\Views\\Trip\\DeleteConfirm.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-23T03:08:42.698Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

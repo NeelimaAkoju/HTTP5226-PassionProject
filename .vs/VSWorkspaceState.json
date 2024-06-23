@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\TripApplication",
+    "\\TripApplication\\Views",
+    "\\TripApplication\\Views\\Trip"
   ],
-  "SelectedNode": "\\C:\\Users\\neeli\\Source\\Repos\\HTTP5226-PassionProject",
+  "SelectedNode": "\\TripApplication\\Views\\Trip\\DeleteConfirm.cshtml",
   "PreviewInSolutionExplorer": false
 }

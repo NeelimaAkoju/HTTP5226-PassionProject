@@ -37,7 +37,7 @@
                 <td>@place.PlaceName</td>
                 <td>@place.PlaceCity</td>
                 <td>
-                    <form asp-action="RemovePlaceFromTrip" method="post">
+                    <form action="/Trip/RemovePlaceFromTrip/" method="post">
                         <input type="hidden" name="tripId" value="@Model.Trip.TripID" />
                         <input type="hidden" name="placeId" value="@place.PlaceId" />
                         <input type="submit" value="Remove" class="btn btn-danger" />
@@ -60,13 +60,13 @@
     <tbody>
         @foreach (var place in Model.AllPlace)
         {
-            if (!Model.IncludedPlaces.Any(p => p.PlaceId == place.PlaceId))
+            if (!(Model.IncludedPlaces.Any(p => p.PlaceId == place.PlaceId)))
             {
                 <tr>
                     <td>@place.PlaceName</td>
                     <td>@place.PlaceCity</td>
                     <td>
-                        <form asp-action="AddPlaceToTrip" method="post">
+                        <form action="/trip/AddPlaceToTrip" method="post">
                             <input type="hidden" name="tripId" value="@Model.Trip.TripID" />
                             <input type="hidden" name="placeId" value="@place.PlaceId" />
                             <input type="submit" value="Add" class="btn btn-success" />
@@ -79,5 +79,5 @@
 </table>
 
 <div>
-    <a asp-action="List" class="btn btn-secondary">Back to List</a>
+    <a href="/Trip/List" class="btn btn-secondary">Back to List</a>
 </div>

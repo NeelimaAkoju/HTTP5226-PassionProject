@@ -81,7 +81,8 @@ namespace TripApplication.Controllers
             {
                 PlaceName = p.PlaceName,
                 PlaceCity = p.PlaceCity,
-                PlaceDescription = p.PlaceDescription
+                PlaceDescription = p.PlaceDescription,
+                PlaceId = p.PlaceId
             }));
 
             return Ok(PlaceDtos);

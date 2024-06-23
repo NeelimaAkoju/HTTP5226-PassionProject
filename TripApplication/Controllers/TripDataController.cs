@@ -141,29 +141,75 @@ namespace TripApplication.Controllers
         [Route("api/TripData/AddPlaceToTrip/{tripId}/{placeId}")]
         public IHttpActionResult AddPlaceToTrip(int tripId, int placeId)
         {
-            // Find the trip by ID
             Trip trip = db.Trips.Include(t => t.Place).FirstOrDefault(t => t.TripID == tripId);
             if (trip == null)
             {
                 return NotFound();
             }
 
-            // Find the place by ID
             Place place = db.Places.Find(placeId);
             if (place == null)
             {
                 return NotFound();
             }
 
-            // Check if the place is already in the trip
             if (!trip.Place.Any(p => p.PlaceId == placeId))
             {
-                // Add the place to the trip
                 trip.Place.Add(place);
                 db.SaveChanges();
             }
 
             return Ok();
+        }
+
+        [HttpPost]
+        [Route("api/TripData/RemovePlaceFromTrip/{tripId}/{placeId}")]
+        public IHttpActionResult RemovePlaceFromTrip(int tripId, int placeId)
+        {
+            Trip trip = db.Trips.Include(t => t.Place).FirstOrDefault(t => t.TripID == tripId);
+            if (trip == null)
+            {
+                return NotFound();
+            }
+
+            Place place = db.Places.Find(placeId);
+            if (place == null)
+            {
+                return NotFound();
+            }
+
+            if (trip.Place.Any(p => p.PlaceId == placeId))
+            {
+                trip.Place.Remove(place);
+                db.SaveChanges();
+            }
+
+            return Ok();
+        }
+
+        [ResponseType(typeof(TripDto))]
+        [HttpPost]
+        [Route("api/TripData/TripsForCustomer/{customerId}/{customerId}")]
+        public IHttpActionResult TripsForCustomer(int customerId)
+        {
+            List<Trip> trips = db.Trips
+                 .Include(t => t.Customer)
+                 .Where(t => t.CustomerId == customerId)
+                 .ToList();
+            List<TripDto> tripDtos = new List<TripDto>();
+
+            trips.ForEach(t => tripDtos.Add(new TripDto()
+            {
+                TripID = t.TripID,
+                TripName = t.TripName,
+                TripDescription = t.TripDescription,
+                StartDate = t.StartDate,
+                EndDate = t.EndDate,
+                CustomerId = t.CustomerId,
+                CustomerName = t.Customer.CustomerName
+            }));
+
+            return Ok(tripDtos);
         }
 
         private bool TripExists(int id)

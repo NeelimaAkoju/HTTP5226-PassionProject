@@ -159,19 +159,37 @@ namespace TripApplication.Controllers
             return View(trips);
         }
 
-
-        // POST: Trip/EditPlaceFromTrip
         [HttpPost]
-        public ActionResult AddPlaceFromTrip(int tripId, int placeId)
+        // POST: Trip/AddPlaceToTrip/5/1
+        public ActionResult AddPlaceToTrip(int tripId, int placeId)
         {
-            string url = "tripdata/RemovePlaceFromTrip/" + tripId + "/" + placeId;
+            string url = "TripData/AddPlaceToTrip/" + tripId +"/"+ placeId;
             HttpContent content = new StringContent("");
             content.Headers.ContentType.MediaType = "application/json";
             HttpResponseMessage response = client.PostAsync(url, content).Result;
 
             if (response.IsSuccessStatusCode)
             {
-                return RedirectToAction("Show", new { id = tripId });
+                return RedirectToAction("EditPlaceFromTrip/"+tripId);
+            }
+            else
+            {
+                return RedirectToAction("Error");
+            }
+        }
+
+        [HttpPost]
+        // POST: Trip/RemovePlaceFromTrip/5/1
+        public ActionResult RemovePlaceFromTrip(int tripId, int placeId)
+        {
+            string url = "TripData/RemovePlaceFromTrip/" + tripId + "/" + placeId;
+            HttpContent content = new StringContent("");
+            content.Headers.ContentType.MediaType = "application/json";
+            HttpResponseMessage response = client.PostAsync(url, content).Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+                return RedirectToAction("EditPlaceFromTrip/" + tripId);
             }
             else
             {
