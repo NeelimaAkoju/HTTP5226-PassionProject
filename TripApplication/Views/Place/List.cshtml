@@ -1,13 +1,37 @@
 ﻿@model IEnumerable<TripApplication.Models.PlaceDto>
+
 @{
-    ViewBag.Title = "List";
+    ViewData["Title"] = "Places";
 }
 
-<h2>List Of Attractions</h2>
-<div>
-    <p>Click on the cities below to know the places you can plan your trip.</p>
-</div>
-@foreach (var place in Model)
-{ 
-    <h3><a href="/Place/Show/@place.PlaceId">@place.PlaceName</a></h3>
-}
+<h1>Places</h1>
+
+<p>
+    <a href="/Place/New" class="btn btn-primary">Create New Place</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Place Name</th>
+            <th>Description</th>
+            <th>City</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.PlaceName</td>
+                <td>@item.PlaceDescription</td>
+                <td>@item.PlaceCity</td>
+                <td>
+                    <a href="/Place/Edit/@item.PlaceId" class="btn btn-sm btn-secondary">Edit</a> |
+                    <a href="/Place/Show/@item.PlaceId" class="btn btn-sm btn-info">Details</a> |
+                    <a href="/Place/DeleteConfirm/@item.PlaceId" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

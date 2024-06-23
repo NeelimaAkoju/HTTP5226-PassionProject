@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewData["Title"] = "Create Place";
+}
+
+<h1>Create Place</h1>
+
+<h4>Place</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form action="/Place/Create" method="POST">
+            <div class="form-group">
+                <label for="PlaceName" class="control-label">Name</label>
+                <input name="PlaceName" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="PlaceDescription" class="control-label">Description</label>
+                <input name="PlaceDescription" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="PlaceCity" class="control-label">City</label>
+                <input name="PlaceCity" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a href="/Place/List">Back to List</a>
+</div>

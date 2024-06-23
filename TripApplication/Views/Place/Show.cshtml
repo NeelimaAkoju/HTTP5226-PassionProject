@@ -1,11 +1,36 @@
 ﻿@model TripApplication.Models.PlaceDto
-@{
-    ViewBag.Title = "Show";
-}
-<a href="/Place/List">Go Back to List</a>
-<h2>Details of @Model.PlaceName</h2>
-<div>
-    <p>@Model.PlaceDescription</p>
-    <p>@Model.PlaceCity</p>
-</div>
 
+@{
+    ViewData["Title"] = "Place Details";
+}
+
+<h1>Place Details</h1>
+
+<div>
+    <h4>Place</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Place Name
+        </dt>
+        <dd class="col-sm-10">
+            @Model.PlaceName
+        </dd>
+        <dt class="col-sm-2">
+            Description
+        </dt>
+        <dd class="col-sm-10">
+            @Model.PlaceDescription
+        </dd>
+        <dt class="col-sm-2">
+            City
+        </dt>
+        <dd class="col-sm-10">
+            @Model.PlaceCity
+        </dd>
+    </dl>
+</div>
+<div>
+    <a href="/Place/Edit/@Model.PlaceId" class="btn btn-primary">Edit</a> |
+    <a href="/Place/List" class="btn btn-secondary">Back to List</a>
+</div>

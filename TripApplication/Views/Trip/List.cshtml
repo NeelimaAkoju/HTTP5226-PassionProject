@@ -1,0 +1,40 @@
+﻿@model IEnumerable<TripApplication.Models.TripDto>
+
+@{
+    ViewData["Title"] = "Trips";
+}
+
+<h1>Trips</h1>
+
+<p>
+    <a href="/Trip/New" class="btn btn-primary">Create New Trip</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Trip Name</th>
+            <th>Description</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Customer</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.TripName</td>
+                <td>@item.TripDescription</td>
+                <td>@item.StartDate.ToString("yyyy-MM-dd")</td>
+                <td>@item.EndDate.ToString("yyyy-MM-dd")</td>
+                <td>@item.CustomerName</td>
+                <td>
+                    <a href="/Trip/Edit/@item.TripID" class="btn btn-sm btn-secondary">Edit</a> |
+                    <a href="/Trip/Show/@item.TripID" class="btn btn-sm btn-info">Details</a> |
+                    <a href="/Trip/DeleteConfirm/@item.TripID" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

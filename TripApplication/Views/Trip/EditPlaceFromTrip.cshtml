@@ -1,0 +1,83 @@
+﻿@model TripApplication.Models.ViewModels.EditPlaceInTrip
+
+@{
+    ViewData["Title"] = "Edit Places in Trip";
+}
+
+<h1>Edit Places in @Model.Trip.TripName</h1>
+
+<h4>Trip Details</h4>
+<dl class="row">
+    <dt class="col-sm-2">Trip Name</dt>
+    <dd class="col-sm-10">@Model.Trip.TripName</dd>
+
+    <dt class="col-sm-2">Description</dt>
+    <dd class="col-sm-10">@Model.Trip.TripDescription</dd>
+
+    <dt class="col-sm-2">Start Date</dt>
+    <dd class="col-sm-10">@Model.Trip.StartDate.ToString("yyyy-MM-dd")</dd>
+
+    <dt class="col-sm-2">End Date</dt>
+    <dd class="col-sm-10">@Model.Trip.EndDate.ToString("yyyy-MM-dd")</dd>
+</dl>
+
+<h4>Places in Trip</h4>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Place Name</th>
+            <th>City</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var place in Model.IncludedPlaces)
+        {
+            <tr>
+                <td>@place.PlaceName</td>
+                <td>@place.PlaceCity</td>
+                <td>
+                    <form asp-action="RemovePlaceFromTrip" method="post">
+                        <input type="hidden" name="tripId" value="@Model.Trip.TripID" />
+                        <input type="hidden" name="placeId" value="@place.PlaceId" />
+                        <input type="submit" value="Remove" class="btn btn-danger" />
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h4>Add Places to Trip</h4>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Place Name</th>
+            <th>City</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var place in Model.AllPlace)
+        {
+            if (!Model.IncludedPlaces.Any(p => p.PlaceId == place.PlaceId))
+            {
+                <tr>
+                    <td>@place.PlaceName</td>
+                    <td>@place.PlaceCity</td>
+                    <td>
+                        <form asp-action="AddPlaceToTrip" method="post">
+                            <input type="hidden" name="tripId" value="@Model.Trip.TripID" />
+                            <input type="hidden" name="placeId" value="@place.PlaceId" />
+                            <input type="submit" value="Add" class="btn btn-success" />
+                        </form>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+<div>
+    <a asp-action="List" class="btn btn-secondary">Back to List</a>
+</div>

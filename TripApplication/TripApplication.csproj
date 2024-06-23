@@ -32,7 +32,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -186,12 +186,26 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PlaceController.cs" />
     <Compile Include="Controllers\PlaceDataController.cs" />
+    <Compile Include="Controllers\TripController.cs" />
+    <Compile Include="Controllers\TripDataController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\202406082039551_place.cs" />
     <Compile Include="Migrations\202406082039551_place.Designer.cs">
       <DependentUpon>202406082039551_place.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202406210328504_customer.cs" />
+    <Compile Include="Migrations\202406210328504_customer.Designer.cs">
+      <DependentUpon>202406210328504_customer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202406211655322_placestripchanges.cs" />
+    <Compile Include="Migrations\202406211655322_placestripchanges.Designer.cs">
+      <DependentUpon>202406211655322_placestripchanges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202406211710246_placetriplinkchnage.cs" />
+    <Compile Include="Migrations\202406211710246_placetriplinkchnage.Designer.cs">
+      <DependentUpon>202406211710246_placetriplinkchnage.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -200,6 +214,8 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Place.cs" />
     <Compile Include="Models\Trip.cs" />
+    <Compile Include="Models\ViewModels\DetailsTrip.cs" />
+    <Compile Include="Models\ViewModels\EditPlaceInTrip.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -276,6 +292,17 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Place\List.cshtml" />
     <Content Include="Views\Place\Show.cshtml" />
+    <Content Include="Views\Place\New.cshtml" />
+    <Content Include="Views\Place\Edit.cshtml" />
+    <Content Include="Views\Place\Error.cshtml" />
+    <Content Include="Views\Place\DeleteConfirm.cshtml" />
+    <Content Include="Views\Trip\List.cshtml" />
+    <Content Include="Views\Trip\Show.cshtml" />
+    <Content Include="Views\Trip\New.cshtml" />
+    <Content Include="Views\Trip\DeleteConfirm.cshtml" />
+    <Content Include="Views\Trip\Error.cshtml" />
+    <Content Include="Views\Trip\Edit.cshtml" />
+    <Content Include="Views\Trip\EditPlaceFromTrip.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -310,6 +337,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202406082039551_place.resx">
       <DependentUpon>202406082039551_place.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202406210328504_customer.resx">
+      <DependentUpon>202406210328504_customer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202406211655322_placestripchanges.resx">
+      <DependentUpon>202406211655322_placestripchanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202406211710246_placetriplinkchnage.resx">
+      <DependentUpon>202406211710246_placetriplinkchnage.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

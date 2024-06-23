@@ -114,3 +114,6 @@ C:\Users\neeli\source\repos\TripApplication\TripApplication\obj\Debug\TripApplic
 C:\Users\neeli\source\repos\TripApplication\TripApplication\obj\Debug\TripApplication.pdb
 C:\Users\neeli\source\repos\TripApplication\TripApplication\obj\Debug\TripApplication.Migrations.place.resources
 C:\Users\neeli\source\repos\TripApplication\TripApplication\obj\Debug\TripApplication.csproj.GenerateResource.cache
+C:\Users\neeli\source\repos\TripApplication\TripApplication\obj\Debug\TripApplication.Migrations.customer.resources
+C:\Users\neeli\source\repos\TripApplication\TripApplication\obj\Debug\TripApplication.Migrations.placestripchanges.resources
+C:\Users\neeli\source\repos\TripApplication\TripApplication\obj\Debug\TripApplication.Migrations.placetriplinkchnage.resources

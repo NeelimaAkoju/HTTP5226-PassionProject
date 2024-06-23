@@ -1,0 +1,60 @@
+﻿@model TripApplication.Models.ViewModels.DetailsTrip
+
+@{
+    ViewData["Title"] = "Trip Details";
+}
+
+<h1>Trip Details</h1>
+
+<div>
+    <h4>Trip</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Trip Name
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Trip.TripName
+        </dd>
+        <dt class="col-sm-2">
+            Description
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Trip.TripDescription
+        </dd>
+        <dt class="col-sm-2">
+            Start Date
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Trip.StartDate.ToString("yyyy-MM-dd")
+        </dd>
+        <dt class="col-sm-2">
+            End Date
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Trip.EndDate.ToString("yyyy-MM-dd")
+        </dd>
+        <dt class="col-sm-2">
+            Customer
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Trip.CustomerName
+        </dd>
+        <dt class="col-sm-2">
+            Places
+        </dt>
+        <dd class="col-sm-10">
+            <ul>
+                @foreach (var place in Model.IncludedPlaces)
+                {
+                    <li>@place.PlaceName (@place.PlaceCity) - @place.PlaceDescription</li>
+                }
+            </ul>
+            <a href="/Trip/EditPlaceFromTrip/@Model.Trip.TripID" class="btn btn-sm btn-secondary">Add or Remove Place</a>
+        </dd>
+    </dl>
+</div>
+<div>
+    <a href="/Trip/Edit/@Model.Trip.TripID" class="btn btn-sm btn-secondary">Edit</a> 
+    <a href="/Trip/List" class="btn btn-secondary">Back to List</a>
+</div>
